@@ -13,7 +13,7 @@ const People = () => {
     const { data, status }: { data: any | undefined, status: string } = useQuery('people', fetchPeople);
     return (
         <div>
-            {status === "pending" && <Pending />}
+            {status === "loading" && <Pending />}
             {status === "error" && <Errors />}
             {status === "success" && (
                 <div>

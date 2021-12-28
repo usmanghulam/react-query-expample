@@ -13,13 +13,13 @@ const Planets = () => {
     const { data, status }: { data: any | undefined, status: string } = useQuery('planets', fetchPlanets);
     return (
         <div>
-            {status === "pending" && <Pending />}
-						{status === "error" && <Errors />}
-						{status === "success" && (
-							<div>
-								{data.results.map((planet: PlanetProps) => <Planet key={planet.name} {...{planet}} />)}
-							</div>
-						)}
+            {status === "loading" && <Pending />}
+            {status === "error" && <Errors />}
+            {status === "success" && (
+                <div>
+                    {data.results.map((planet: PlanetProps) => <Planet key={planet.name} {...{planet}} />)}
+                </div>
+            )}
         </div>
     );
 };

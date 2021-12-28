@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
+import Button from '../components/buttons';
 
 interface Props {
     setPage: (arg: string) => void;
 }
 const Navbar:FC<Props> = ({ setPage }) => {
     return (
-        <div>
-            <button onClick={() => setPage('planet')} >Planets</button>
-            <button onClick={() => setPage('people')}>People</button>
-        </div>
+        <nav>
+            <Button title='planet' {...{ setPage }} />
+            <Button title='people' {...{ setPage }} />
+        </nav>
     );
 };
 
