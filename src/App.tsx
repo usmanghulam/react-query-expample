@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/containers/Navbar';
 import People from './components/People/containers/People';
 import Planets from './components/Planets/containers/Planets';
 import { QueryClientProvider, QueryClient } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 function App() {
   const [page, setPage] = useState("planet");
@@ -13,6 +14,7 @@ function App() {
         <Navbar {...{ setPage }} />
         {(page === "planet") ? <Planets /> : <People />}
       </div>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
